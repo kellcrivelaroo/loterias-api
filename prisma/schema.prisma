@@ -1,0 +1,257 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Megasena {
+  numero                              Int      @id
+  nome                                String?  @default("MEGA_SENA")
+  data_apuracao                       String   @unique @default("")
+  data_proximo_concurso               String   @default("")
+  local_sorteio                       String   @default("")
+  municipio_sorteio                   String   @default("")
+  acumulado                           Boolean  @default(false)
+  valor_arrecadado                    Float    @default(0)
+  valor_acumulado_concurso_zero_cinco Float    @default(0)
+  valor_acumulado_especial            Float    @default(0)
+  valor_acumulado_proximo_concurso    Float    @default(0)
+  valor_estimado_proximo_concurso     Float    @default(0)
+  dezenas                             String[] @default([])
+  dezenas_segundo_sorteio             String[] @default([])
+  premiacao                           Json[]   @default([])
+  lista_municipio_ganhadores          Json[]   @default([])
+
+  @@unique([numero, data_apuracao])
+  @@map("megasena")
+}
+
+model Quina {
+  numero                              Int      @id
+  nome                                String?  @default("QUINA")
+  data_apuracao                       String   @unique @default("")
+  data_proximo_concurso               String   @default("")
+  local_sorteio                       String   @default("")
+  municipio_sorteio                   String   @default("")
+  acumulado                           Boolean  @default(false)
+  valor_arrecadado                    Float    @default(0)
+  valor_acumulado_concurso_zero_cinco Float    @default(0)
+  valor_acumulado_especial            Float    @default(0)
+  valor_acumulado_proximo_concurso    Float    @default(0)
+  valor_estimado_proximo_concurso     Float    @default(0)
+  dezenas                             String[] @default([])
+  dezenas_segundo_sorteio             String[] @default([])
+  premiacao                           Json[]   @default([])
+  lista_municipio_ganhadores          Json[]   @default([])
+
+  @@unique([numero, data_apuracao])
+  @@map("quina")
+}
+
+model Lotofacil {
+  numero                              Int      @id
+  nome                                String?  @default("LOTOFACIL")
+  data_apuracao                       String   @unique @default("")
+  data_proximo_concurso               String   @default("")
+  local_sorteio                       String   @default("")
+  municipio_sorteio                   String   @default("")
+  acumulado                           Boolean  @default(false)
+  valor_arrecadado                    Float    @default(0)
+  valor_acumulado_concurso_zero_cinco Float    @default(0)
+  valor_acumulado_especial            Float    @default(0)
+  valor_acumulado_proximo_concurso    Float    @default(0)
+  valor_estimado_proximo_concurso     Float    @default(0)
+  dezenas                             String[] @default([])
+  dezenas_segundo_sorteio             String[] @default([])
+  premiacao                           Json[]   @default([])
+  lista_municipio_ganhadores          Json[]   @default([])
+
+  @@unique([numero, data_apuracao])
+  @@map("lotofacil")
+}
+
+model MaisMilionaria {
+  numero                              Int      @id
+  nome                                String?  @default("MAIS_MILIONARIA")
+  data_apuracao                       String   @unique @default("")
+  data_proximo_concurso               String   @default("")
+  local_sorteio                       String   @default("")
+  municipio_sorteio                   String   @default("")
+  acumulado                           Boolean  @default(false)
+  valor_arrecadado                    Float    @default(0)
+  valor_acumulado_concurso_zero_cinco Float    @default(0)
+  valor_acumulado_especial            Float    @default(0)
+  valor_acumulado_proximo_concurso    Float    @default(0)
+  valor_estimado_proximo_concurso     Float    @default(0)
+  valor_saldo_reserva_garantidora     Float    @default(0)
+  valor_total_faixa_um                Float    @default(0)
+  dezenas                             String[] @default([])
+  dezenas_segundo_sorteio             String[] @default([])
+  premiacao                           Json[]   @default([])
+  lista_municipio_ganhadores          Json[]   @default([])
+  trevos_sorteados                    String[] @default([])
+
+  @@unique([numero, data_apuracao])
+  @@map("maismilionaria")
+}
+
+model Duplasena {
+  numero                              Int      @id
+  nome                                String?  @default("DUPLA_SENA")
+  data_apuracao                       String   @unique @default("")
+  data_proximo_concurso               String   @default("")
+  local_sorteio                       String   @default("")
+  municipio_sorteio                   String   @default("")
+  acumulado                           Boolean  @default(false)
+  valor_arrecadado                    Float    @default(0)
+  valor_acumulado_concurso_zero_cinco Float    @default(0)
+  valor_acumulado_especial            Float    @default(0)
+  valor_acumulado_proximo_concurso    Float    @default(0)
+  valor_estimado_proximo_concurso     Float    @default(0)
+  dezenas                             String[] @default([])
+  dezenas_segundo_sorteio             String[] @default([])
+  premiacao                           Json[]   @default([])
+  lista_municipio_ganhadores          Json[]   @default([])
+
+  @@unique([numero, data_apuracao])
+  @@map("duplasena")
+}
+
+model DiaDeSorte {
+  numero                              Int      @id
+  nome                                String?  @default("DIA_DE_SORTE")
+  data_apuracao                       String   @unique @default("")
+  data_proximo_concurso               String   @default("")
+  local_sorteio                       String   @default("")
+  municipio_sorteio                   String   @default("")
+  mes_sorte                           String   @default("")
+  acumulado                           Boolean  @default(false)
+  valor_arrecadado                    Float    @default(0)
+  valor_acumulado_concurso_zero_cinco Float    @default(0)
+  valor_acumulado_especial            Float    @default(0)
+  valor_acumulado_proximo_concurso    Float    @default(0)
+  valor_estimado_proximo_concurso     Float    @default(0)
+  dezenas                             String[] @default([])
+  dezenas_segundo_sorteio             String[] @default([])
+  premiacao                           Json[]   @default([])
+  lista_municipio_ganhadores          Json[]   @default([])
+
+  @@unique([numero, data_apuracao])
+  @@map("diadesorte")
+}
+
+model Timemania {
+  numero                              Int      @id
+  nome                                String?  @default("TIMEMANIA")
+  data_apuracao                       String   @unique @default("")
+  data_proximo_concurso               String   @default("")
+  local_sorteio                       String   @default("")
+  municipio_sorteio                   String   @default("")
+  time_coracao                        String   @default("")
+  acumulado                           Boolean  @default(false)
+  valor_arrecadado                    Float    @default(0)
+  valor_acumulado_concurso_zero_cinco Float    @default(0)
+  valor_acumulado_especial            Float    @default(0)
+  valor_acumulado_proximo_concurso    Float    @default(0)
+  valor_estimado_proximo_concurso     Float    @default(0)
+  dezenas                             String[] @default([])
+  dezenas_segundo_sorteio             String[] @default([])
+  premiacao                           Json[]   @default([])
+  lista_municipio_ganhadores          Json[]   @default([])
+
+  @@unique([numero, data_apuracao])
+  @@map("timemania")
+}
+
+model Loteca {
+  numero                              Int      @id
+  nome                                String?  @default("LOTECA")
+  data_apuracao                       String   @unique @default("")
+  data_proximo_concurso               String   @default("")
+  local_sorteio                       String   @default("")
+  municipio_sorteio                   String   @default("")
+  acumulado                           Boolean  @default(false)
+  valor_arrecadado                    Float    @default(0)
+  valor_acumulado_concurso_zero_cinco Float    @default(0)
+  valor_acumulado_especial            Float    @default(0)
+  valor_acumulado_proximo_concurso    Float    @default(0)
+  valor_estimado_proximo_concurso     Float    @default(0)
+  dezenas                             String[] @default([])
+  dezenas_segundo_sorteio             String[] @default([])
+  premiacao                           Json[]   @default([])
+  lista_municipio_ganhadores          Json[]   @default([])
+  resultado_equipe_esportiva          Json[]   @default([])
+
+  @@unique([numero, data_apuracao])
+  @@map("loteca")
+}
+
+model SuperSete {
+  numero                              Int      @id
+  nome                                String?  @default("SUPER_SETE")
+  data_apuracao                       String   @unique @default("")
+  data_proximo_concurso               String   @default("")
+  local_sorteio                       String   @default("")
+  municipio_sorteio                   String   @default("")
+  acumulado                           Boolean  @default(false)
+  valor_arrecadado                    Float    @default(0)
+  valor_acumulado_concurso_zero_cinco Float    @default(0)
+  valor_acumulado_especial            Float    @default(0)
+  valor_acumulado_proximo_concurso    Float    @default(0)
+  valor_estimado_proximo_concurso     Float    @default(0)
+  valor_total_faixa_um                Float    @default(0)
+  dezenas                             String[] @default([])
+  dezenas_segundo_sorteio             String[] @default([])
+  premiacao                           Json[]   @default([])
+  lista_municipio_ganhadores          Json[]   @default([])
+
+  @@unique([numero, data_apuracao])
+  @@map("supersete")
+}
+
+model Lotomania {
+  numero                              Int      @id
+  nome                                String?  @default("LOTOMANIA")
+  data_apuracao                       String   @unique @default("")
+  data_proximo_concurso               String   @default("")
+  local_sorteio                       String   @default("")
+  municipio_sorteio                   String   @default("")
+  acumulado                           Boolean  @default(false)
+  valor_arrecadado                    Float    @default(0)
+  valor_acumulado_concurso_zero_cinco Float    @default(0)
+  valor_acumulado_especial            Float    @default(0)
+  valor_acumulado_proximo_concurso    Float    @default(0)
+  valor_estimado_proximo_concurso     Float    @default(0)
+  dezenas                             String[] @default([])
+  dezenas_segundo_sorteio             String[] @default([])
+  premiacao                           Json[]   @default([])
+  lista_municipio_ganhadores          Json[]   @default([])
+
+  @@unique([numero, data_apuracao])
+  @@map("lotomania")
+}
+
+model Federal {
+  numero                              Int      @id
+  nome                                String?  @default("LOTERIA_FEDERAL")
+  data_apuracao                       String   @unique @default("")
+  data_proximo_concurso               String   @default("")
+  local_sorteio                       String   @default("")
+  municipio_sorteio                   String   @default("")
+  acumulado                           Boolean  @default(false)
+  valor_arrecadado                    Float    @default(0)
+  valor_acumulado_concurso_zero_cinco Float    @default(0)
+  valor_acumulado_especial            Float    @default(0)
+  valor_acumulado_proximo_concurso    Float    @default(0)
+  valor_estimado_proximo_concurso     Float    @default(0)
+  dezenas                             String[] @default([])
+  dezenas_segundo_sorteio             String[] @default([])
+  premiacao                           Json[]   @default([])
+  lista_municipio_ganhadores          Json[]   @default([])
+
+  @@unique([numero, data_apuracao])
+  @@map("federal")
+}

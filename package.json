@@ -1,0 +1,38 @@
+{
+  "name": "loterias-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint src --ext .ts",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p .",
+    "migrate": "prisma migrate dev",
+    "start": "prisma migrate deploy && node build/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.22",
+    "@types/node-schedule": "2.1.6",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint": "^8.57.0",
+    "prisma": "^5.10.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@fastify/cors": "^9.0.1",
+    "@fastify/postgres": "^5.2.2",
+    "@prisma/client": "^5.10.2",
+    "axios": "1.6.7",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.26.1",
+    "node-schedule": "2.1.1",
+    "pg": "^8.11.3",
+    "zod": "^3.22.4"
+  }
+}

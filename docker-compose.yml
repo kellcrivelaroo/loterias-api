@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  db:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=apiloterias
+      - POSTGRESQL_DATABASE=loterias
+  api:
+    build: .
+    ports:
+      - 3333:3333
+    environment:
+      - DATABASE_URL=postgresql://docker:apiloterias@db:5432/apiloterias?schema=public
+      - API_URL=https://servicebus2.caixa.gov.br/portaldeloterias/api/
+      - PORT=3333
+    depends_on:
+      - db
