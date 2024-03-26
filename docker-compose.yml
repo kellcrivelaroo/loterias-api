@@ -14,7 +14,7 @@ services:
     ports:
       - 3333:3333
     environment:
-      - DATABASE_URL=postgresql://docker:apiloterias@db:5432/apiloterias?schema=public
+      - DATABASE_URL=postgresql://docker:apiloterias@db:5432/loterias?schema=public
       - API_URL=https://servicebus2.caixa.gov.br/portaldeloterias/api/
       - PORT=3333
     depends_on:

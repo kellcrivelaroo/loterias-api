@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:18-alpine
 
 RUN npm install -g pnpm
 
@@ -15,5 +15,7 @@ RUN pnpx prisma generate
 COPY . .
 
 EXPOSE 3333
+
+RUN npm run build
 
 CMD [ "npm", "run", "start" ]

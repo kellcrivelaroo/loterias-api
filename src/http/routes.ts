@@ -1,4 +1,4 @@
-import type { FastifyInstance } from "fastify";
+import type { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { getAll } from "./controllers/get-all.js";
 import { getMegasena, registerMegasena } from "./controllers/lotteries/megasena.js";
 import { getQuina, registerQuina } from "./controllers/lotteries/quina.js";
@@ -14,6 +14,10 @@ import { getSuperSete, registerSuperSete } from "./controllers/lotteries/superse
 import { getTimemania, registerTimemania } from "./controllers/lotteries/timemania.js";
 
 export const appRoutes = async (app: FastifyInstance) => {
+  app.get('/', (request: FastifyRequest, reply: FastifyReply) => {
+    return reply.status(200).send({ hello: 'world' })
+  })
+
   app.get('/get-all', getAll)
   app.get('/register-all', registerAll)
   
