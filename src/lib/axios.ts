@@ -5,4 +5,7 @@ const apiUrl = env.API_URL
 
 export const api = axios.create({
   baseURL: apiUrl,
+  headers: {
+    'Accept-Encoding': 'gzip, deflate, br',
+  }
 })
