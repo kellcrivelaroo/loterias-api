@@ -12,8 +12,9 @@ import { getLoteca, registerLoteca } from "./controllers/lotteries/loteca.js";
 import { getLotomania, registerLotomania } from "./controllers/lotteries/lotomania.js";
 import { getSuperSete, registerSuperSete } from "./controllers/lotteries/supersete.js";
 import { getTimemania, registerTimemania } from "./controllers/lotteries/timemania.js";
-import { api } from "src/lib/axios.js";
-import { Api } from "src/types/api.js";
+import { api } from "../lib/axios.js";
+import { Api } from "../types/api.js";
+
 
 export const appRoutes = async (app: FastifyInstance) => {
   app.get('/', async (request: FastifyRequest, reply: FastifyReply) => {
