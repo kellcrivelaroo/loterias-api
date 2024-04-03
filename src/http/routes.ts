@@ -18,7 +18,7 @@ import { Api } from "../types/api.js";
 
 export const appRoutes = async (app: FastifyInstance) => {
   app.get('/', async (request: FastifyRequest, reply: FastifyReply) => {
-    const results = await api.get<Api>('megasena/latest').then(res => res.data)
+    const results = await api.get<Api>('megasena').then(res => res.data)
     return reply.status(200).send(results)
   })
 

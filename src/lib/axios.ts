@@ -4,7 +4,7 @@ import axios from 'axios'
 const apiUrl = env.API_URL
 
 export const api = axios.create({
-  baseURL: 'https://loteriascaixa-api.herokuapp.com/api/',
+  baseURL: apiUrl,
   headers: {
     'Accept-Encoding': 'gzip, deflate, br',
   }
