@@ -5,7 +5,6 @@ import { schedule } from './scheduler/index.js'
 import cors from '@fastify/cors';
 
 const port = env.PORT
-const host = ("RENDER" in process.env) ? `0.0.0.0` : `localhost`;
 
 schedule()
 
@@ -23,7 +22,7 @@ fastify.register(cors, {
 
 fastify.register(appRoutes)
 
-fastify.listen({ host, port }, (err) => {
+fastify.listen({ host: '0.0.0.0', port }, (err) => {
 	if (err) {
 		fastify.log.error(err)
 		process.exit(1)

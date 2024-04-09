@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:18-alpine
 
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
@@ -10,10 +10,14 @@ USER node
 
 RUN yarn install
 
+COPY prisma ./prisma
+
+RUN npx prisma generate
+
 COPY --chown=node:node . .
 
-RUN yarn build
-
 EXPOSE 8080
+
+RUN yarn build
 
 CMD [ "yarn", "start" ]

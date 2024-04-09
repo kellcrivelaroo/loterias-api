@@ -9,7 +9,7 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc -p .",
     "migrate": "prisma migrate dev",
-    "start": "prisma generate && node build/server.js"
+    "start": "node build/server.js"
   },
   "keywords": [],
   "author": "",

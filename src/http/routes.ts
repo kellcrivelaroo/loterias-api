@@ -12,14 +12,10 @@ import { getLoteca, registerLoteca } from "./controllers/lotteries/loteca.js";
 import { getLotomania, registerLotomania } from "./controllers/lotteries/lotomania.js";
 import { getSuperSete, registerSuperSete } from "./controllers/lotteries/supersete.js";
 import { getTimemania, registerTimemania } from "./controllers/lotteries/timemania.js";
-import { api } from "../lib/axios.js";
-import { Api } from "../types/api.js";
-
 
 export const appRoutes = async (app: FastifyInstance) => {
   app.get('/', async (request: FastifyRequest, reply: FastifyReply) => {
-    const results = await api.get<Api>('megasena').then(res => res.data)
-    return reply.status(200).send(results)
+    return reply.status(200).send('Server running')
   })
 
   app.get('/get-all', getAll)
